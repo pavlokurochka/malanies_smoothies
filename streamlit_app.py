@@ -2,7 +2,7 @@
 import streamlit as st
 # from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
-
+import requests
 
 
 
@@ -10,10 +10,8 @@ from snowflake.snowpark.functions import col
 st.title(" :cup_with_straw: Cusstomize Your Smoothie!🍹")
 
 
-# option = st.selectbox(
-#     "What is your favorite fruit?",
-#     ("Banana", "Strawberries", "Peaches"),
-# )
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
 
 
 name_on_order = st.text_input('Name on Smoothie:')
